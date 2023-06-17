@@ -1,0 +1,7 @@
+logger:
+  level: debug
+  pattern: '[a-z]+'
+
+certificate:
+  version: 1
+  expiration: 2020-12-01

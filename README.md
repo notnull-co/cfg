@@ -71,13 +71,14 @@ func main() {
 
 If a field is not set and is marked as *required* then an error is returned. If a *default* value is defined instead then that value is used to populate the field.
 
-Cfg searches for a file named `config.yaml` in the directory it is run from. Change the lookup behaviour by passing additional parameters to `Load()`:
+By default Cfg searches for a file named `config.yaml` and `secret.yaml` in the directory it is run from. Add your own files and dirs by passing additional parameters to `Load()`:
 
 ```go
 cfg.Load(&conf,
   cfg.File("settings.json"),
+  // includes the file settings.json to the list of cfg files. 
   cfg.Dirs(".", "/etc/myapp", "/home/user/myapp"),
-) // searches for ./settings.json, /etc/myapp/settings.json, /home/user/myapp/settings.json
+) // searches for ./settings.json, /etc/myapp/settings.json, /home/user/myapp/settings.json as well as config.yaml and secret.yaml on the same dirs.
 
 ```
 
